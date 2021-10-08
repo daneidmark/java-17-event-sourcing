@@ -11,7 +11,7 @@ public abstract class AggregateRoot<T> {
     private List<DomainEvent<T>> uncommittedEvents = new ArrayList<>();
 
     public void loadFromHistory(List<DomainEvent<T>> history) {
-        history.forEach(this::applyNew);
+        history.forEach(this::applyWrapper);
     }
 
     public void commit() {
